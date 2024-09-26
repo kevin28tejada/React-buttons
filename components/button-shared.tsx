@@ -6,7 +6,7 @@ interface ButtonSharedStateProps {
 }
 
 
-export const ButtonSharedState = ({count, onClick}): ButtonSharedStateProps => {
+export const ButtonSharedState = ({count, onClick}: ButtonSharedStateProps)=> {
    
     return (
       <button
