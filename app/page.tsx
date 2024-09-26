@@ -1,35 +1,31 @@
 "use client"
 
-import { useState } from "react"
+import { useState } from "react";
 
+import { ButtonSharedState }from "@/components/button-shared";
+import { ButtonIndependentState } from "@/components/button-independent";
 
 export default function Home() {
+  const [count, setCount] = useState(0);
+
+  function handleClick(){
+    setCount(count + 1);
+  }
+
   return (
     
-      <main className="flex min-h-screen flex-col items-center  p-24">
+      <main className=" flex min-h-screen flex-col items-center  p-24 " >
         
-            <h1>React Counter Button</h1>
-            <Button />
+            <h1 className="text-3xl font-bold">React Counter Button</h1>
+            <h2 className="text-xl">Buttons with shared state</h2>
+            <ButtonSharedState count={ count } onClick ={handleClick} />
+            <ButtonSharedState count={ count } onClick ={handleClick} />
+            <h2 className="text-xl">Buttons with independent state</h2>
+            <ButtonIndependentState />
+            <ButtonIndependentState />
       </main>
       
   );
 }
 
-function Button() {
-  const [count, setCount] = useState(0)
 
-  function handleClick(){
-    setCount(count + 1);
-  }
-  return (
-    <button
-    onClick={handleClick}
-     className="bg-blue-500 hover:bg-blue-700 rounded text-white font-bold px-4 py-2">
-      I have been clicked { count } times
-      </button>
-  );
-  
-  
-  
-
-}
